@@ -1,0 +1,26 @@
+In this file place your manual test cases.  Separate each test case with 
+a line of dashes.  Please delete these instructions and the example.
+
+For example:
+
+------------------------------------------------------------------------------
+Feature: Deleting a book
+
+Steps:
+
+1. From the homepage (/), click on 'Books'. 
+
+2. Click on the link 'New Book' and create a new book with title='test delete' 
+and year=2020 and any existing author.
+
+3. Click on "Show Books"
+
+4. Click the "Delete" button next to the "test delete" book.
+
+Expected results:
+
+Should end up on the "Books" page (/books) and a message should be displayed 
+saying "Book was successfully deleted." and the "test delete" book should 
+no longer be listed.
+
+-------------------------------------------------------------------------------
