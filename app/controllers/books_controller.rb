@@ -65,8 +65,8 @@ class BooksController < ApplicationController
       # The value for the :book key is another hash.
       # If params does not contain the key :book, an exception is raised.  
       # Only the "book" hash is returned and only with the permitted key(s).
-      # So returns a hash with only having at most keys of :title, :year, :author_id
-      params.require(:book).permit(:title, :year, :author_id)
+      # So returns a hash with only having at most keys of :title, :year, :author_id, :is_fiction
+      params.require(:book).permit(:title, :year, :author_id, :is_fiction)
     end
       
 end
