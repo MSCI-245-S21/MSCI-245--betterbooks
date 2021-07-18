@@ -54,7 +54,9 @@ class AuthorsController < ApplicationController
   # DELETE /authors/:id
   def destroy
     @author = Author.find(params[:id]) 
-     @book = Book.find(params[:id])
+     
+      
+    @book = @author.books
     
     if @book.destroy_all
         
