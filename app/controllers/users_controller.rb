@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'User was successfully created.'  
       redirect_to @user
     else
+        
       render :new
     end
   end
