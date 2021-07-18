@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_020257) do
+ActiveRecord::Schema.define(version: 2021_07_15_135833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_020257) do
     t.bigint "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_fiction", null: false
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_020257) do
     t.string "email", limit: 255, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email"
   end
 
   add_foreign_key "books", "authors"
