@@ -49,7 +49,8 @@ class BooksController < ApplicationController
 
   # DELETE /books/:id
   def destroy
-    @book = Book.find(params[:id])  
+    @book = Book.find(params[:id]) 
+      
     if @book.destroy
         flash[:notice] = 'Book was successfully deleted.'
     else
@@ -57,6 +58,11 @@ class BooksController < ApplicationController
     end
     redirect_to books_url 
   end
+    
+    def destroy_all
+        @book = Book.find(params[:id])  
+          @book.destroy_all
+    end
 
   private
     # Only allow a trusted parameter "white list" through.
