@@ -49,7 +49,8 @@ class BooksController < ApplicationController
 
   # DELETE /books/:id
   def destroy
-    @book = Book.find(params[:id])  
+    @book = Book.find(params[:id]) 
+      
     if @book.destroy
         flash[:notice] = 'Book was successfully deleted.'
     else
@@ -57,6 +58,11 @@ class BooksController < ApplicationController
     end
     redirect_to books_url 
   end
+    
+    def destroy_all
+        @book = Book.find(params[:id])  
+          @book.destroy_all
+    end
 
   private
     # Only allow a trusted parameter "white list" through.
@@ -65,8 +71,8 @@ class BooksController < ApplicationController
       # The value for the :book key is another hash.
       # If params does not contain the key :book, an exception is raised.  
       # Only the "book" hash is returned and only with the permitted key(s).
-      # So returns a hash with only having at most keys of :title, :year, :author_id
-      params.require(:book).permit(:title, :year, :author_id)
+      # So returns a hash with only having at most keys of :title, :year, :author_id, :is_fiction
+      params.require(:book).permit(:title, :year, :author_id, :is_fiction)
     end
       
 end

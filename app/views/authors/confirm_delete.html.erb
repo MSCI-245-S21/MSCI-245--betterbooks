@@ -2,11 +2,26 @@
 <p>
   <strong>Name:</strong>
   <%= @author.name %>
+    
 </p>
 <% if @author.num_books > 0 %>    
-  <p>
-    <strong>Notice:</strong> This author has <%= @author.num_books %> book(s).  You must first delete the author's books before deleting the author.
-  </p>
+
+      
+     
+      <strong>Notice:</strong> Since <%= @author.name %> has <%= @author.num_books %> book(s), do you want to delete all books? 
+      
+
+         <br>  <tr><td>Title:</td> <br>
+          <td><% @author.books.each do |book| %>
+                <%= book.title %> <br>      
+                 <% end %></td></tr>
+
+    <%= form_with model: @author, local: true, method: 'delete' do |f| %>
+    <%= f.submit "Confirm Delete" %>
+    <% end %>
+
+
+  
 <% else %>
   <%= form_with model: @author, local: true, method: 'delete' do |f| %>
     <%= f.submit "Confirm Delete" %>

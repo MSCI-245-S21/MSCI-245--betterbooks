@@ -1,26 +1,145 @@
 In this file place your manual test cases.  Separate each test case with 
 a line of dashes.  Please delete these instructions and the example.
 
-For example:
-
-------------------------------------------------------------------------------
-Feature: Deleting a book
+-------------------------------------------------------------------------------
+No1:
+Feature: Downcased email
 
 Steps:
+1. From the homepage (/), click on 'Users'
+2. Clink on the 'New User' and create a new user with name= 'dana' and email= 'DANA@DANA.COM'
 
-1. From the homepage (/), click on 'Books'. 
-
-2. Click on the link 'New Book' and create a new book with title='test delete' 
-and year=2020 and any existing author.
-
-3. Click on "Show Books"
-
-4. Click the "Delete" button next to the "test delete" book.
 
 Expected results:
 
-Should end up on the "Books" page (/books) and a message should be displayed 
-saying "Book was successfully deleted." and the "test delete" book should 
-no longer be listed.
+email should save in lowercase (dana@dana.com)    
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+No2: 
+Feature: Downcased email
+
+Steps:
+1. From the homepage (/), click on 'Users'
+2. Clink on the 'New User' and create a new user with name= 'ann' and email= 'Ann@ANN.com'
+
+
+Expected results:
+
+email should save in lowercase (ann@ann.com)     
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+No3:
+Feature: Unique email 
+
+Steps:
+1. From the homepage (/), click on 'Users'
+
+2. Click on the 'New User' and create a new user with new name and existing email: name = 'alex' and email= 'DANA@DANA.COM'
+
+Expected results:
+Print the message "This email is already taken. Try with another email" without creating new user. 
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+No4: 
+Feature: Author's Book list 
+
+
+1. From the homepage (/), click on 'Authors'
+
+2. Click the Delete button of author name "Jon Krakauer"  (I will delete author named Jon Krakauer.)
+
+3. Check the message
+
+Expected results: 
+Currently, in my database, John Krakauer has 2 books, title = "Into the Wild" and title = "Into the Wild". 
+Two titles should displayed correctly in the screen and message to ask to users that they also want all books deleted.
+
+Notice: Since Jon Krakauer has 2 book(s), do you want to delete all books?
+Title:
+Into the Wild
+Into Thin Air
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+No5: 
+Feature: Delete Author and Books
+
+
+1. From the homepage (/), click on 'Authors'
+
+2. Click the Delete button of author name "Jon Krakauer"  (I will delete author named Jon Krakauer.)
+
+3. Click "Cinfirm Delete"
+ 
+Expected results: 
+Currently, in my database, John Krakauer has 2 books, title = "Into the Wild" and title = "Into the Wild". 
+Two books and Jon Krakauer should delete.
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+No6:
+
+Feature: Update Genre
+
+Steps:
+1. From the homepage (/), click on 'Books'
+
+2. Click on the 'New Book' and create a new book with name: Animal Firm, Year: 2021, Author: 'Tom Wolfe', fiction
+
+Expected results: 
+Print the message "Book was successfully created." And in the (/books/id) page, we should have update information. 
+
+Title: Animal Farm
+
+Year: 2021
+
+Author: Tom Wolfe
+
+Fiction Book (True/False): true
+
+#In the code, I add the code to print the True/ False depends on the book genre. If the genre is fiction, it will print true and
+it will print false, if the book is nonfiction. 
+
+Also, in the (/books) page, updated information should printed.
+Title                 Author      Genre
+Animal Farm	2021	Tom Wolfe	fiction
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+No7:
+Feature: Order by Genre
+
+1. From the homepage (/), click on 'Books'
+
+2. Create new book title="Aarry Porter", year= 2020, author= George Orwell, nonfiction
+
+Expected results:
+Since "Array Porter" is fiction book, it should printed below fiction books when we click "Genre" in the (/books) page 
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+
+No8:
+Feature: Order by Genre & Title
+
+
+1. From the homepage (/), click on 'Books'
+
+2. Create new book title="Aarry Porter", year= 2020, author= George Orwell, nonfiction
+
+Expected results:
+Since "Array Porter" is fiction book, it should printed below fiction books. 
+Also, since book's first letter is "A", among the nonfiction book, "Array Porter" should displayed on top
+when user click "Genre" in the (/books) page. 
+
 
 -------------------------------------------------------------------------------

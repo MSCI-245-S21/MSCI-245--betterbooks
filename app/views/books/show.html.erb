@@ -14,6 +14,13 @@
   <strong>Author:</strong>
   <%= @book.author.name %>
 </p>
+
+<p>
+  <strong>Fiction Book (True/False):</strong>
+  <%= @book.is_fiction %>
+</p>
+
+
 <p>
 <%= link_to 'Edit Book', edit_book_path(@book) %> |
 <%= link_to 'Show Books', books_path %> |

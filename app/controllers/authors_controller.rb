@@ -53,11 +53,19 @@ class AuthorsController < ApplicationController
     
   # DELETE /authors/:id
   def destroy
-    @author = Author.find(params[:id])  
-    if @author.destroy
-        flash[:notice] = 'Author was successfully deleted.'
+    @author = Author.find(params[:id]) 
+     
+      
+    @book = @author.books
+    
+    if @book.destroy_all
+        
+        @author.destroy
+        flash[:notice] = 'Author & Books are successfully deleted.'
+        
     else
-        flash[:notice] = 'Unable to delete author.'
+        
+        flash[:notice] = 'Unable to delete author & books.'
     end
     redirect_to authors_url 
   end

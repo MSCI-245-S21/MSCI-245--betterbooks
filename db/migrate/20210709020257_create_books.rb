@@ -4,6 +4,8 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :title, limit: 255, null: false
       t.integer :year, null: false
       t.references :author, null: false, foreign_key: true
+      
+     
 
       t.timestamps
     end

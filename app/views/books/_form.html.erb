@@ -27,7 +27,15 @@
     <%= form.select(:author_id, Author.to_nested_array_for_select) %>      
   </div>
 
+ <div class="field">
+      <%= form.check_box :is_fiction %>
+      <%= form.label :is_fiction, style: "display: inline" %>
+    </div>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>
+
+   
 <% end %>
